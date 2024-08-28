@@ -38,7 +38,7 @@ COPY --chown=node:node --from=builder /home/node/app/dist ./dist
 COPY --chown=node:node --from=builder /home/node/app/node_modules ./node_modules
 COPY --chown=node:node --from=builder /home/node/app/package.json ./
 
-EXPOSE 3000
+EXPOSE 3333
 
 ENV NODE_ENV=production
 
