@@ -1,19 +1,11 @@
-import fastify from "fastify";
+import "dotenv/config";
+import app from "./src/server";
 
-const server = fastify();
+const PORT = process.env.PORT ?? 3333;
 
-server.get("/", async () => {
-  return { hello: "World" };
-});
-
-server.get("/ping", async () => {
-  return "pong\n";
-});
-
-server.listen({ port: 3333, host: "0.0.0.0" }, (err, address) => {
+app.listen({ port: Number(PORT), host: "0.0.0.0" }, (err, _address) => {
   if (err) {
     console.error(err);
     process.exit(1);
   }
-  console.log(`Server listening at ${address}`);
 });
